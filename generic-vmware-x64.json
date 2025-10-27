@@ -2833,6 +2833,47 @@
       "type": "shell",
       "timeout": "120m",
       "scripts": [
+        "scripts/alma10/network.sh",
+        "scripts/alma10/dnf.sh",
+        "scripts/alma10/base.sh",
+        "scripts/alma10/reboot.sh"
+      ],
+      "execute_command": "{{.Vars}} /bin/bash '{{.Path}}'",
+      "start_retry_timeout": "15m",
+      "expect_disconnect": "true",
+      "only": [
+        "generic-alma10-vmware-x64_v2"
+      ]
+    },
+    {
+      "type": "shell",
+      "timeout": "120m",
+      "scripts": [
+        "scripts/alma10/kernel.sh",
+        "scripts/alma10/floppy.sh",
+        "scripts/alma10/virtualbox.sh",
+        "scripts/alma10/parallels.sh",
+        "scripts/alma10/vmware.sh",
+        "scripts/alma10/qemu.sh",
+        "scripts/alma10/vagrant.sh",
+        "scripts/alma10/tuning.sh",
+        "scripts/alma10/sshd.sh",
+        "scripts/alma10/updatedb.sh",
+        "scripts/alma10/cleanup.sh",
+        "scripts/alma10/undnf.sh"
+      ],
+      "execute_command": "{{.Vars}} /bin/bash '{{.Path}}'",
+      "pause_before": "120s",
+      "start_retry_timeout": "15m",
+      "expect_disconnect": "true",
+      "only": [
+        "generic-alma10-vmware-x64_v2"
+      ]
+    },
+    {
+      "type": "shell",
+      "timeout": "120m",
+      "scripts": [
         "scripts/oracle9/network.sh",
         "scripts/oracle9/dnf.sh",
         "scripts/oracle9/base.sh",
@@ -7302,6 +7343,47 @@
       "vmx_remove_ethernet_interfaces": true,
       "iso_url": "https://ftp.halifax.rwth-aachen.de/almalinux/10.0/isos/x86_64/AlmaLinux-10.0-x86_64-boot.iso",
       "iso_checksum": "sha256:a1549729bfb66a28e3546c953033c9928eae7280917bb1c490983dba3bb9941c",
+      "skip_compaction": false,
+      "ssh_username": "root",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_handshake_attempts": 1000,
+      "ssh_timeout": "3600s",
+      "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
+      "tools_upload_flavor": "linux"
+    },
+    {
+      "type": "vmware-iso",
+      "name": "generic-alma10-vmware-x64_v2",
+      "vm_name": "generic-alma10-vmware-x64_v2",
+      "vmdk_name": "generic-alma10-vmware-x64_v2",
+      "output_directory": "output/generic-alma10-vmware-x64_v2",
+      "boot_wait": "20s",
+      "boot_keygroup_interval": "1s",
+      "boot_command": [
+        "<tab><up>e<down><down><end> net.ifnames=0 inst.text inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/generic.alma10.vagrant.x64_v2.ks vga=792 <f10><wait>"
+      ],
+      "disk_size": 131072,
+      "disk_type_id": "0",
+      "cpus": 2,
+      "memory": 2048,
+      "version": "13",
+      "vmx_data_post": {
+        "virtualHW.version": "13",
+        "cleanShutdown": "TRUE",
+        "softPowerOff": "FALSE",
+        "ethernet0.virtualDev": "e1000",
+        "ethernet0.startConnected": "TRUE",
+        "ethernet0.wakeonpcktrcv": "false"
+      },
+      "guest_os_type": "centos-64",
+      "http_directory": "http",
+      "headless": true,
+      "vnc_disable_password": true,
+      "vnc_bind_address": "127.0.0.1",
+      "vmx_remove_ethernet_interfaces": true,
+      "iso_url": "https://ftp.halifax.rwth-aachen.de/almalinux/10.0/isos/x86_64_v2/AlmaLinux-10.0-x86_64_v2-boot.iso",
+      "iso_checksum": "sha256:5571cc6c826300a3d4aff9c2fc5203d03d4762bc5c9955ba061689d1af7867fc",
       "skip_compaction": false,
       "ssh_username": "root",
       "ssh_password": "vagrant",
