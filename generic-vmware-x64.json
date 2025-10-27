@@ -2792,6 +2792,47 @@
       "type": "shell",
       "timeout": "120m",
       "scripts": [
+        "scripts/alma10/network.sh",
+        "scripts/alma10/dnf.sh",
+        "scripts/alma10/base.sh",
+        "scripts/alma10/reboot.sh"
+      ],
+      "execute_command": "{{.Vars}} /bin/bash '{{.Path}}'",
+      "start_retry_timeout": "15m",
+      "expect_disconnect": "true",
+      "only": [
+        "generic-alma10-vmware-x64"
+      ]
+    },
+    {
+      "type": "shell",
+      "timeout": "120m",
+      "scripts": [
+        "scripts/alma10/kernel.sh",
+        "scripts/alma10/floppy.sh",
+        "scripts/alma10/virtualbox.sh",
+        "scripts/alma10/parallels.sh",
+        "scripts/alma10/vmware.sh",
+        "scripts/alma10/qemu.sh",
+        "scripts/alma10/vagrant.sh",
+        "scripts/alma10/tuning.sh",
+        "scripts/alma10/sshd.sh",
+        "scripts/alma10/updatedb.sh",
+        "scripts/alma10/cleanup.sh",
+        "scripts/alma10/undnf.sh"
+      ],
+      "execute_command": "{{.Vars}} /bin/bash '{{.Path}}'",
+      "pause_before": "120s",
+      "start_retry_timeout": "15m",
+      "expect_disconnect": "true",
+      "only": [
+        "generic-alma10-vmware-x64"
+      ]
+    },
+    {
+      "type": "shell",
+      "timeout": "120m",
+      "scripts": [
         "scripts/oracle9/network.sh",
         "scripts/oracle9/dnf.sh",
         "scripts/oracle9/base.sh",
