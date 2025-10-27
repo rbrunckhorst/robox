@@ -3,8 +3,8 @@
     {
       "name": "alma8-x64",
       "output_directory": "output/alma8-x64",
-      "iso_url": "https://dfw.mirror.rackspace.com/almalinux/8.9/isos/x86_64/AlmaLinux-8.9-x86_64-boot.iso",
-      "iso_checksum": "sha256:ab861d80c8b68634f3c16d414a4141759a082548ad7b251d8924675fa09decab",
+      "iso_url": "https://dfw.mirror.rackspace.com/almalinux/8.10/isos/x86_64/AlmaLinux-8.10-x86_64-boot.iso",
+      "iso_checksum": "sha256:cc3e61faf2dd6c9c80d3beeb47eaaba235ac13fe1b617209c3c1e546528ccb99",
       "boot_wait": "5s",
       "disk_size": 1,
       "headless": true,
