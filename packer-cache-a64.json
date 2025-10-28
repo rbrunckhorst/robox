@@ -136,6 +136,21 @@
       "type": "vmware-iso"
     },
     {
+      "name": "alma10-a64",
+      "output_directory": "output/alma10-a64",
+      "iso_url": "https://ftp.halifax.rwth-aachen.de/almalinux/10.0/isos/aarch64/AlmaLinux-10.0-aarch64-boot.iso",
+      "iso_checksum": "sha256:f06ce9bfce7565404afe7a71326a6cc23349ca6115329f378eb9a372f265ad80",
+      "boot_wait": "5s",
+      "disk_size": 1,
+      "headless": true,
+      "shutdown_command": "poweroff",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_timeout": "10s",
+      "ssh_username": "root",
+      "type": "vmware-iso"
+    },
+    {
       "name": "alpine319-a64",
       "output_directory": "output/alpine319-a64",
       "iso_url": "https://mirrors.edge.kernel.org/alpine/v3.19/releases/aarch64/alpine-virt-3.19.7-aarch64.iso",
