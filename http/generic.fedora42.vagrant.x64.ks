@@ -17,7 +17,7 @@ logvol / --fstype="xfs" --percent=100 --label="root" --name=root --vgname=fedora
 
 firewall --enabled --service=ssh
 network --device eth0 --bootproto dhcp --noipv6 --hostname=fedora39.localdomain
-bootloader --timeout=1 --append="net.ifnames=0 biosdevname=0 no_timer_check vga=792 nomodeset text"
+bootloader --timeout=1 --append="net.ifnames=0 biosdevname=0 no_timer_check vga=870 nomodeset text"
 
 #### Prod Repo
 url --url=https://dl.fedoraproject.org/pub/fedora/linux/releases/42/Server/x86_64/os/

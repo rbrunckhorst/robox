@@ -74,6 +74,7 @@ ROBOX_FILES="packer-cache-x64.json packer-cache-x32.json "\
 "packer-cache-p64.json packer-cache-m64.json "\
 "generic-docker-x64.json generic-hyperv-x64.json generic-parallels-x64.json "\
 "generic-vmware-x32.json generic-vmware-x64.json "\
+"generic-vmware-a64.json "\
 "generic-virtualbox-x32.json generic-virtualbox-x64.json "\
 "generic-libvirt-a32.json generic-libvirt-a64.json "\
 "generic-libvirt-x32.json generic-libvirt-x64.json "\
@@ -163,18 +164,18 @@ FUTURE+=( "https://dfw.mirror.rackspace.com/almalinux/8.10/isos/x86_64/AlmaLinux
 FUTURE+=( "https://dfw.mirror.rackspace.com/almalinux/8.10/isos/aarch64/AlmaLinux-8.10-aarch64-boot.iso" )
 
 # Alma 9
-REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.3/BaseOS/x86_64/os/repodata/repomd.xml" )
-REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.3/BaseOS/x86_64/os/repodata/repomd.xml.asc" )
-REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.3/AppStream/x86_64/os/repodata/repomd.xml" )
-REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.3/AppStream/x86_64/os/repodata/repomd.xml.asc" )
-REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.3/BaseOS/aarch64/os/repodata/repomd.xml" )
-REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.3/BaseOS/aarch64/os/repodata/repomd.xml.asc" )
-REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.3/AppStream/aarch64/os/repodata/repomd.xml" )
-REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.3/AppStream/aarch64/os/repodata/repomd.xml.asc" )
-REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.3/BaseOS/ppc64le/os/repodata/repomd.xml" )
-REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.3/BaseOS/ppc64le/os/repodata/repomd.xml.asc" )
-REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.3/AppStream/ppc64le/os/repodata/repomd.xml" )
-REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.3/AppStream/ppc64le/os/repodata/repomd.xml.asc" )
+REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.6/BaseOS/x86_64/os/repodata/repomd.xml" )
+REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.6/BaseOS/x86_64/os/repodata/repomd.xml.asc" )
+REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.6/AppStream/x86_64/os/repodata/repomd.xml" )
+REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.6/AppStream/x86_64/os/repodata/repomd.xml.asc" )
+REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.6/BaseOS/aarch64/os/repodata/repomd.xml" )
+REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.6/BaseOS/aarch64/os/repodata/repomd.xml.asc" )
+REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.6/AppStream/aarch64/os/repodata/repomd.xml" )
+REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.6/AppStream/aarch64/os/repodata/repomd.xml.asc" )
+REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.6/BaseOS/ppc64le/os/repodata/repomd.xml" )
+REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.6/BaseOS/ppc64le/os/repodata/repomd.xml.asc" )
+REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.6/AppStream/ppc64le/os/repodata/repomd.xml" )
+REPOS+=( "https://dfw.mirror.rackspace.com/almalinux/9.6/AppStream/ppc64le/os/repodata/repomd.xml.asc" )
 
 FUTURE+=( "https://dfw.mirror.rackspace.com/almalinux/9.4/BaseOS/x86_64/os/repodata/repomd.xml" )
 FUTURE+=( "https://dfw.mirror.rackspace.com/almalinux/9.4/AppStream/x86_64/os/repodata/repomd.xml" )
@@ -1923,6 +1924,8 @@ function box() {
   [[ "$1" =~ ^.*generic.*$ ]] && [[ "$1" =~ ^.*vmware-x64.*$ ]] && packer build -on-error=$PACKER_ON_ERROR -parallel-builds=$PACKER_MAX_PROCS -only=$1 generic-vmware-x64.json
   export PACKER_LOG_PATH="$BASE/logs/generic-vmware-x32-log-`date +'%Y%m%d.%H.%M.%S'`.txt"
   [[ "$1" =~ ^.*generic.*$ ]] && [[ "$1" =~ ^.*vmware-x32.*$ ]] && packer build -on-error=$PACKER_ON_ERROR -parallel-builds=$PACKER_MAX_PROCS -only=$1 generic-vmware-x32.json
+  export PACKER_LOG_PATH="$BASE/logs/generic-vmware-a64-log-`date +'%Y%m%d.%H.%M.%S'`.txt"
+  [[ "$1" =~ ^.*generic.*$ ]] && [[ "$1" =~ ^.*vmware-a64.*$ ]] && packer build -on-error=$PACKER_ON_ERROR -parallel-builds=$PACKER_MAX_PROCS -only=$1 generic-vmware-a64.json
 
   export PACKER_LOG_PATH="$BASE/logs/generic-virtualbox-x64-log-`date +'%Y%m%d.%H.%M.%S'`.txt"
   [[ "$1" =~ ^.*generic.*$ ]] && [[ "$1" =~ ^.*virtualbox-x64.*$ ]] && packer build -on-error=$PACKER_ON_ERROR -parallel-builds=$PACKER_MAX_PROCS -only=$1 generic-virtualbox-x64.json
