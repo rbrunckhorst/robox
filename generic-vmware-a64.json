@@ -7297,22 +7297,24 @@
       "boot_wait": "20s",
       "boot_keygroup_interval": "1s",
       "boot_command": [
-        "<tab> net.ifnames=0 inst.text inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/generic.alma9.vagrant.a64.ks vga=792 <enter><wait>"
+        "<tab><up>e<down><down><end> net.ifnames=0 inst.text inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/generic.alma9.vagrant.a64.ks vga=792 <f10><wait>"
       ],
       "disk_size": 131072,
       "disk_type_id": "0",
+      "disk_adapter_type": "nvme",
       "cpus": 2,
       "memory": 2048,
-      "version": "13",
+      "version": "22",
+      "network_adapter_type": "e1000e",
+      "usb": "TRUE",
       "vmx_data_post": {
-        "virtualHW.version": "13",
+        "virtualHW.version": "22",
         "cleanShutdown": "TRUE",
         "softPowerOff": "FALSE",
-        "ethernet0.virtualDev": "e1000",
         "ethernet0.startConnected": "TRUE",
         "ethernet0.wakeonpcktrcv": "false"
       },
-      "guest_os_type": "centos-64",
+      "guest_os_type": "arm-almaLinux-64",
       "http_directory": "http",
       "headless": true,
       "vnc_disable_password": true,
