@@ -3106,7 +3106,7 @@
       "start_retry_timeout": "15m",
       "expect_disconnect": "true",
       "only": [
-        "generic-fedora42-vmware-x64"
+        "generic-fedora42-vmware-a64"
       ]
     },
     {
@@ -3120,7 +3120,7 @@
       "start_retry_timeout": "15m",
       "expect_disconnect": "true",
       "only": [
-        "generic-fedora42-vmware-x64"
+        "generic-fedora42-vmware-a64"
       ]
     },
     {
@@ -3142,7 +3142,7 @@
       "start_retry_timeout": "15m",
       "expect_disconnect": "true",
       "only": [
-        "generic-fedora42-vmware-x64"
+        "generic-fedora42-vmware-a64"
       ]
     },
     {
@@ -8350,10 +8350,10 @@
     },
     {
       "type": "vmware-iso",
-      "name": "generic-fedora42-vmware-x64",
-      "vm_name": "generic-fedora42-vmware-x64",
-      "vmdk_name": "generic-fedora42-vmware-x64",
-      "output_directory": "output/generic-fedora42-vmware-x64",
+      "name": "generic-fedora42-vmware-a64",
+      "vm_name": "generic-fedora42-vmware-a64",
+      "vmdk_name": "generic-fedora42-vmware-a64",
+      "output_directory": "output/generic-fedora42-vmware-a64",
       "boot_wait": "20s",
       "boot_keygroup_interval": "1s",
       "boot_command": [
@@ -8370,17 +8370,20 @@
         "insmod part_gpt<enter><wait>",
         "insmod ext2<enter><wait>",
         "insmod chain<enter><wait>",
-        "search --no-floppy --set=root -l 'Fedora-S-dvd-x86_64-42'<enter><wait>",
-        "linux /images/pxeboot/vmlinuz inst.stage2=hd:LABEL=Fedora-S-dvd-x86_64-42 rd.live.check ",
-        "net.ifnames=0 inst.text inst.ks=http://{{.HTTPIP}}:{{.HTTPPort}}/generic.fedora42.vagrant.x64.ks<enter><wait>",
+        "search --no-floppy --set=root -l 'Fedora-S-dvd-aarch64-42'<enter><wait>",
+        "linux /images/pxeboot/vmlinuz inst.stage2=hd:LABEL=Fedora-S-dvd-aarch64-42 rd.live.check ",
+        "net.ifnames=0 inst.text inst.ks=http://{{.HTTPIP}}:{{.HTTPPort}}/generic.fedora42.vagrant.a64.ks<enter><wait>",
         "initrd /images/pxeboot/initrd.img<enter><wait10>",
         "boot<enter><wait>"
       ],
       "disk_size": 131072,
       "disk_type_id": "0",
+      "disk_adapter_type": "nvme",
       "cpus": 2,
       "memory": 2048,
-      "version": "13",
+      "version": "22",
+      "network_adapter_type": "e1000e",
+      "usb": "TRUE",
       "vmx_data_post": {
         "virtualHW.version": "13",
         "cleanShutdown": "TRUE",
@@ -8396,8 +8399,8 @@
       "vnc_disable_password": true,
       "vnc_bind_address": "127.0.0.1",
       "vmx_remove_ethernet_interfaces": true,
-      "iso_url": "https://dl.fedoraproject.org/pub/fedora/linux/releases/42/Server/x86_64/iso/Fedora-Server-netinst-x86_64-42-1.1.iso",
-      "iso_checksum": "sha256:231f3e0d1dc8f565c01a9f641b3d16c49cae44530074bc2047fe2373a721c82f",
+      "iso_url": "https://dl.fedoraproject.org/pub/fedora/linux/releases/42/Server/aarch64/iso/Fedora-Server-netinst-aarch64-42-1.1.iso",
+      "iso_checksum": "sha256:cbeeb6d0147ce198e28895a9bbc91cd49a964f38177a57d512f73492308533ed",
       "ssh_username": "root",
       "ssh_password": "vagrant",
       "ssh_port": 22,
