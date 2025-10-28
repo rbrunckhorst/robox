@@ -2124,7 +2124,7 @@
       "start_retry_timeout": "15m",
       "expect_disconnect": "true",
       "only": [
-        "generic-alma8-vmware-x64"
+        "generic-alma8-vmware-a64"
       ]
     },
     {
@@ -2151,7 +2151,7 @@
       "start_retry_timeout": "15m",
       "expect_disconnect": "true",
       "only": [
-        "generic-alma8-vmware-x64"
+        "generic-alma8-vmware-a64"
       ]
     },
     {
@@ -6470,36 +6470,38 @@
     },
     {
       "type": "vmware-iso",
-      "name": "generic-alma8-vmware-x64",
-      "vm_name": "generic-alma8-vmware-x64",
-      "vmdk_name": "generic-alma8-vmware-x64",
-      "output_directory": "output/generic-alma8-vmware-x64",
+      "name": "generic-alma8-vmware-a64",
+      "vm_name": "generic-alma8-vmware-a64",
+      "vmdk_name": "generic-alma8-vmware-a64",
+      "output_directory": "output/generic-alma8-vmware-a64",
       "boot_wait": "20s",
       "boot_keygroup_interval": "1s",
       "boot_command": [
-        "<tab> text biosdevname=0 net.ifnames=0 ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/generic.alma8.vagrant.ks<enter><wait>"
+        "<tab><up>e<down><down><end> text biosdevname=0 net.ifnames=0 ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/generic.alma8.vagrant.a64.ks vga=792 <f10><wait>"
       ],
       "disk_size": 131072,
       "disk_type_id": "0",
+      "disk_adapter_type": "nvme",
       "cpus": 2,
       "memory": 2048,
-      "version": "13",
+      "version": "22",
+      "network_adapter_type": "e1000e",
+      "usb": "TRUE",
       "vmx_data_post": {
-        "virtualHW.version": "13",
+        "virtualHW.version": "22",
         "cleanShutdown": "TRUE",
         "softPowerOff": "FALSE",
-        "ethernet0.virtualDev": "e1000",
         "ethernet0.startConnected": "TRUE",
         "ethernet0.wakeonpcktrcv": "false"
       },
-      "guest_os_type": "centos-64",
+      "guest_os_type": "arm-almaLinux-64",
       "http_directory": "http",
       "headless": true,
       "vnc_disable_password": true,
       "vnc_bind_address": "127.0.0.1",
       "vmx_remove_ethernet_interfaces": true,
-      "iso_url": "https://dfw.mirror.rackspace.com/almalinux/8.10/isos/x86_64/AlmaLinux-8.10-x86_64-boot.iso",
-      "iso_checksum": "sha256:cc3e61faf2dd6c9c80d3beeb47eaaba235ac13fe1b617209c3c1e546528ccb99",
+      "iso_url": "https://ftp.halifax.rwth-aachen.de/almalinux/8.10/isos/aarch64/AlmaLinux-8.10-aarch64-boot.iso",
+      "iso_checksum": "sha256:309ef3de5404f5246f02f5cfdf3ff094404167f7de7fbc6517f3de3b77b5e87d",
       "skip_compaction": false,
       "ssh_username": "root",
       "ssh_password": "vagrant",

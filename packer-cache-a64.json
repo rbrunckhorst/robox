@@ -121,6 +121,21 @@
       "type": "vmware-iso"
     },
     {
+      "name": "alma8-a64",
+      "output_directory": "output/alma8-a64",
+      "iso_url": "https://ftp.halifax.rwth-aachen.de/almalinux/8.10/isos/aarch64/AlmaLinux-8.10-aarch64-boot.iso",
+      "iso_checksum": "sha256:309ef3de5404f5246f02f5cfdf3ff094404167f7de7fbc6517f3de3b77b5e87d",
+      "boot_wait": "5s",
+      "disk_size": 1,
+      "headless": true,
+      "shutdown_command": "poweroff",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_timeout": "10s",
+      "ssh_username": "root",
+      "type": "vmware-iso"
+    },
+    {
       "name": "alma9-a64",
       "output_directory": "output/alma9-a64",
       "iso_url": "https://ftp.halifax.rwth-aachen.de/almalinux/9.6/isos/aarch64/AlmaLinux-9.6-aarch64-boot.iso",
