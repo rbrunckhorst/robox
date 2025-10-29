@@ -8339,7 +8339,7 @@
       "vnc_disable_password": true,
       "vnc_bind_address": "127.0.0.1",
       "vmx_remove_ethernet_interfaces": true,
-      "iso_url": "https://dl.fedoraproject.org/pub/fedora/linux/releases/41/Server/aarch64/iso/Fedora-Server-netinst-aarch64-41-1.1.iso",
+      "iso_url": "https://dl.fedoraproject.org/pub/fedora/linux/releases/41/Server/aarch64/iso/Fedora-Server-netinst-aarch64-41-1.4.iso",
       "iso_checksum": "sha256:9fff15b2be224e7f2f12defe7901eed0255c6611e4f87c6fb322081296801641",
       "ssh_username": "root",
       "ssh_password": "vagrant",
