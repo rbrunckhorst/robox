@@ -106,6 +106,21 @@
       "type": "vmware-iso"
     },
     {
+      "name": "fedora41-a64",
+      "output_directory": "output/fedora41-a64",
+      "iso_url": "https://dl.fedoraproject.org/pub/fedora/linux/releases/41/Server/aarch64/iso/Fedora-Server-netinst-aarch64-41-1.1.iso",
+      "iso_checksum": "sha256:9fff15b2be224e7f2f12defe7901eed0255c6611e4f87c6fb322081296801641",
+      "boot_wait": "5s",
+      "disk_size": 1,
+      "headless": true,
+      "shutdown_command": "poweroff",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_timeout": "10s",
+      "ssh_username": "root",
+      "type": "vmware-iso"
+    },
+    {
       "name": "fedora42-a64",
       "output_directory": "output/fedora42-a64",
       "iso_url": "https://dl.fedoraproject.org/pub/fedora/linux/releases/42/Server/aarch64/iso/Fedora-Server-netinst-aarch64-42-1.1.iso",
